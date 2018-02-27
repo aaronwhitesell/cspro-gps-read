@@ -1,0 +1,94 @@
+﻿[FormFile]
+Version=CSPro 7.1
+Name=GPS_FF
+Label=GPS
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\GPSRead.dcf
+  
+[Form]
+Name=FORM000
+Label=(Id Items)
+Level=1
+Size=1191,300
+  
+Item=LOCATION
+  
+[EndForm]
+  
+[Form]
+Name=FORM001
+Label=GPS record
+QuestionTextHeight=113
+Level=1
+Size=1191,300
+  
+Item=GPS_READING
+Item=GPS_RESULTS
+  
+[EndForm]
+  
+[Level]
+Name=GPS_QUEST
+Label=GPS questionnaire
+  
+[Group]
+Required=Yes
+Name=IDS0_FORM
+Label=(Id Items)
+Form=1
+LogicControl=No
+Max=1
+  
+[Field]
+Name=LOCATION
+Position=127,27,272,47
+Item=LOCATION,GPS_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=1
+  
+[Text]
+Position=50,30,105,46
+Text=Location
+ 
+[EndGroup]
+  
+[Group]
+Required=Yes
+Name=GPS_REC_FORM
+Label=GPS record
+Form=2
+LogicControl=No
+Max=1
+  
+[Field]
+Name=GPS_READING
+Position=195,27,210,47
+Item=GPS_READING,GPS_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=50,30,131,46
+Text=GPS reading
+ 
+  
+[Field]
+Name=GPS_RESULTS
+Position=195,57,210,77
+Item=GPS_RESULTS,GPS_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=50,60,123,76
+Text=GPS results
+ 
+[EndGroup]
+  

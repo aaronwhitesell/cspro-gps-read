@@ -1,0 +1,104 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=GPS
+Name=GPS_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=Yes
+DecimalChar=Yes
+
+[Level]
+Label=GPS questionnaire
+Name=GPS_QUEST
+
+[IdItems]
+
+[Item]
+Label=Location
+Name=LOCATION
+Start=2
+Len=15
+DataType=Alpha
+
+[Record]
+Label=GPS record
+Name=GPS_REC
+RecordTypeValue='1'
+RecordLen=55
+
+[Item]
+Label=GPS reading
+Name=GPS_READING
+Start=17
+Len=1
+ZeroFill=Yes
+
+[ValueSet]
+Label=GPS reading
+Name=GPS_READING_VS1
+Value=1;Yes
+Value=3;No
+
+[ValueSet]
+Label=Take GPS reading
+Name=GPS_READING_VS2
+Value=1;Yes
+Value=2;No, but keep previously collected GPS data.
+Value=3;No, but delete previously collected GPS data.
+
+[Item]
+Label=GPS latitude
+Name=GPS_LATITUDE
+Start=18
+Len=9
+Decimal=6
+ZeroFill=Yes
+
+[Item]
+Label=GPS longitude
+Name=GPS_LONGITUDE
+Start=27
+Len=10
+Decimal=6
+ZeroFill=Yes
+
+[Item]
+Label=GPS altitude
+Name=GPS_ALTITUDE
+Start=37
+Len=5
+ZeroFill=Yes
+
+[Item]
+Label=GPS accuracy
+Name=GPS_ACCURACY
+Start=42
+Len=4
+ZeroFill=Yes
+
+[Item]
+Label=GPS satellites
+Name=GPS_SATELLITES
+Start=46
+Len=3
+ZeroFill=Yes
+
+[Item]
+Label=GPS readtime
+Name=GPS_READTIME
+Start=49
+Len=6
+ZeroFill=Yes
+
+[Item]
+Label=GPS results
+Name=GPS_RESULTS
+Start=55
+Len=1
+ZeroFill=Yes
+
+[ValueSet]
+Label=GPS results
+Name=GPS_RESULTS_VS1
+Value=1;Conclude interview
