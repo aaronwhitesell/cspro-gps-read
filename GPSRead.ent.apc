@@ -120,9 +120,9 @@ PROC GPS_FF
 
 preproc
 
-	if getos() <> 20 then
-		// Not Android OS
-		warning("This application is only supported on Android OS. Application will exit.");
+	if not getos() in 10, 20 then
+		// Not Windows or Android OS
+		warning("This application is supported for Android and Windows OS. Application will exit.");
 		stop(1);
 	endif;
 
@@ -134,19 +134,16 @@ PROC GPS_READING
 
 onfocus
 
-	// Clear selection
-	$ = notappl;
-
-	// Update value set
 	if IsCompleteGPSData() then
-		setvalueset(GPS_READING, GPS_READING_VS2);
+		// Update value set
 
-	else
-		setvalueset(GPS_READING, GPS_READING_VS1);
-	endif;
-
-	// Update CAPI Text
-	if IsCompleteGPSData() then
+		if getos() = 10 then
+			setvalueset(GPS_READING, GPS_WINDOWS_READING_VS2);
+		else
+			setvalueset(GPS_READING, GPS_ANDROID_READING_VS2);
+		endif;
+		
+		// Update CAPI Text
 		gps_data_status_capi_text = "collected";
 		gps_accuracy_status_capi_label = "GPS accuracy: ";
 		if IsDesiredAccuracy() then
@@ -156,7 +153,18 @@ onfocus
 			gps_accuracy_status_capi_text = "bad";
 		endif;
 
+		// Preselect "keep data," so field can be advanced through when returning from partial save 
+		$ = 2;
+
 	else
+		// Update value set
+		if getos() = 10 then
+			setvalueset(GPS_READING, GPS_WINDOWS_READING_VS1);
+		else
+			setvalueset(GPS_READING, GPS_ANDROID_READING_VS1);
+		endif;
+
+		// Update CAPI Text
 		gps_data_status_capi_text = "not collected";
 		gps_accuracy_status_capi_label = "";
 		gps_accuracy_status_capi_text = "";
@@ -190,7 +198,3 @@ postproc
 
 PROC GPS_RESULTS
 
-preproc
-
-	// Clear selection
-	$ = notappl;
