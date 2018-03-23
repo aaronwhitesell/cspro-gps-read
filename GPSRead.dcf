@@ -25,7 +25,7 @@ DataType=Alpha
 Label=GPS record
 Name=GPS_REC
 RecordTypeValue='1'
-RecordLen=55
+RecordLen=61
 
 [Item]
 Label=GPS reading
@@ -62,50 +62,56 @@ Value=3;No, but delete previously collected GPS data.
 Label=GPS latitude
 Name=GPS_LATITUDE
 Start=18
-Len=9
+Len=10
 Decimal=6
+DecimalChar=Yes
 ZeroFill=Yes
 
 [Item]
 Label=GPS longitude
 Name=GPS_LONGITUDE
-Start=27
-Len=10
+Start=28
+Len=11
 Decimal=6
+DecimalChar=Yes
 ZeroFill=Yes
 
 [Item]
 Label=GPS altitude
 Name=GPS_ALTITUDE
-Start=37
-Len=5
+Start=39
+Len=7
+Decimal=1
+DecimalChar=Yes
 ZeroFill=Yes
 
 [Item]
 Label=GPS accuracy
 Name=GPS_ACCURACY
-Start=42
-Len=4
+Start=46
+Len=6
+Decimal=1
+DecimalChar=Yes
 ZeroFill=Yes
 
 [Item]
 Label=GPS satellites
 Name=GPS_SATELLITES
-Start=46
+Start=52
 Len=3
 ZeroFill=Yes
 
 [Item]
 Label=GPS readtime
 Name=GPS_READTIME
-Start=49
+Start=55
 Len=6
 ZeroFill=Yes
 
 [Item]
 Label=GPS results
 Name=GPS_RESULTS
-Start=55
+Start=61
 Len=1
 ZeroFill=Yes
 
